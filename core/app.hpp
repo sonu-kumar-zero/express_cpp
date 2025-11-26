@@ -27,6 +27,11 @@ public:
         router_.get(path, std::move(h));
     }
 
+    void post(const std::string &path, Handler h)
+    {
+        router_.post(path, std::move(h));
+    }
+
     void listen(const std::string &address, unsigned short port)
     {
         tcp::endpoint ep(asio::ip::make_address(address), port);

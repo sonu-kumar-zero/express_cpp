@@ -60,7 +60,7 @@ private:
             response);
 
         if (!ok)
-            response.send("Not Found", 404);
+            response.json({"error", "Route not Found"}, 404);
 
         write_response(std::move(response.res));
     };
