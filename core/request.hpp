@@ -3,6 +3,7 @@
 #include <nlohmann/json.hpp>
 #include <string>
 #include <unordered_map>
+#include <cctype>
 
 namespace http = boost::beast::http;
 using json = nlohmann::json;
@@ -44,6 +45,34 @@ struct Request
     }
 
 private:
+    static std::string urlDecode(const std::string &str)
+    {
+        std::string result;
+        result.reserve(str.size());
+
+        for (size_t i = 0; i < str.length(); ++i)
+        {
+            if (str[i] == '%' && i + 2 < str.length() &&
+                std::isxdigit(str[i + 1]) && std::isxdigit(str[i + 2]))
+            {
+                std::string hex = str.substr(i + 1, 2);
+                char decoded = static_cast<char>(std::stoi(hex, nullptr, 16));
+                result += decoded;
+                i += 2;
+            }
+            else if (str[i] == '+')
+            {
+                result += ' '; // Convert web-style "+"
+            }
+            else
+            {
+                result += str[i];
+            }
+        }
+
+        return result;
+    }
+
     void parseQuery()
     {
         std::string target = std::string(req.target());
@@ -60,8 +89,8 @@ private:
             auto eq = pair.find('=');
             if (eq != std::string::npos)
             {
-                std::string key = pair.substr(0, eq);
-                std::string val = pair.substr(eq + 1);
+                std::string key = urlDecode(pair.substr(0, eq));
+                std::string val = urlDecode(pair.substr(eq + 1));
                 query[key] = val;
             };
 
