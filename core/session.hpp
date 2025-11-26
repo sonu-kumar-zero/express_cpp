@@ -54,9 +54,12 @@ private:
         response.res.set(http::field::server, "cpp-express");
         response.res.set(http::field::content_type, "text/plain");
 
+        std::string target = std::string(request.req.target());
+        std::string path = target.substr(0, target.find('?'));
+
         bool ok = router_.dispatch(
             std::string(request.req.method_string()),
-            std::string(request.req.target()),
+            path,
             request,
             response);
 

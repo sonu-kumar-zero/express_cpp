@@ -1,6 +1,7 @@
 {
   "files.associations": {
     "*.cpp": "cpp",
-    "memory": "cpp"
+    "memory": "cpp",
+    "format": "cpp"
   }
 }

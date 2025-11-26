@@ -40,9 +40,20 @@ int main()
                      std::string username = req.jsonBody["username"];
                      std::string password = req.jsonBody["password"];
 
-                     res.json({{"ok", true},
-                               {"user", username}});
+                     res.json(
+                         {{"ok", true},
+                          {"user", username}});
                  });
+
+        app.get("/search",
+                [](Request &req, Response &res)
+                {
+                    std::string name = req.query["name"];
+                    std::string age = req.query["age"];
+
+                    res.json({{"name", name},
+                              {"age", age}});
+                });
 
         std::cout << "Listening on 0.0.0.0:8080\n";
         app.listen("0.0.0.0", 8080);
