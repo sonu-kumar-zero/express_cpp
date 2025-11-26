@@ -29,6 +29,21 @@ int main()
                                {"received", "something for now"}});
                  });
 
+        app.post("/login",
+                 [](Request &req, Response &res)
+                 {
+                     if (!req.isJson)
+                     {
+                         return res.send("Expected application/json", 400);
+                     }
+
+                     std::string username = req.jsonBody["username"];
+                     std::string password = req.jsonBody["password"];
+
+                     res.json({{"ok", true},
+                               {"user", username}});
+                 });
+
         std::cout << "Listening on 0.0.0.0:8080\n";
         app.listen("0.0.0.0", 8080);
     }

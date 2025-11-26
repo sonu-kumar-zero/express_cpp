@@ -46,6 +46,7 @@ private:
     void handle_request()
     {
         Request request{std::move(req_)};
+        request.parse();
         Response response;
 
         response.res = http::response<http::string_body>(
