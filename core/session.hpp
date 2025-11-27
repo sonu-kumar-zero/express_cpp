@@ -3,6 +3,7 @@
 #include <boost/beast.hpp>
 #include "router.hpp"
 #include <iostream>
+#include "logger.hpp"
 
 namespace asio = boost::asio;
 namespace beast = boost::beast;
@@ -15,10 +16,11 @@ class Session : public std::enable_shared_from_this<Session>
     beast::flat_buffer buffer_;
     Router &router_;
     http::request<http::string_body> req_;
+    Logger &logger_;
 
 public:
-    explicit Session(tcp::socket sock, Router &router)
-        : socket_(std::move(sock)), router_(router)
+    explicit Session(tcp::socket sock, Router &router, Logger &logger)
+        : socket_(std::move(sock)), router_(router), logger_(logger)
     {
         socket_.set_option(tcp::no_delay(true));
     }
@@ -57,7 +59,7 @@ private:
         std::string target = std::string(request.req.target());
         std::string path = target.substr(0, target.find('?'));
 
-        std::cout << "session.hpp:60:method_name" << std::string(request.req.method_string()) << "\n";
+        logger_.log("session.hpp:method_name" + std::string(request.req.method_string()));
         bool ok = router_.dispatch(
             std::string(request.req.method_string()),
             path,

@@ -7,6 +7,7 @@
 
 #include "router.hpp"
 #include "listener.hpp"
+#include "logger.hpp"
 
 namespace asio = boost::asio;
 using tcp = asio::ip::tcp;
@@ -17,10 +18,11 @@ class App
     Router router_;
     std::vector<std::thread> workers_;
     std::shared_ptr<Listener> listener_;
+    Logger logger_;
 
 public:
     App(unsigned threads = std::thread::hardware_concurrency())
-        : ioc_(threads) {}
+        : ioc_(threads), router_(logger_) {}
 
     void get(const std::string &path, Handler h)
     {
@@ -46,8 +48,10 @@ public:
     {
         tcp::endpoint ep(asio::ip::make_address(address), port);
 
-        listener_ = std::make_shared<Listener>(ioc_, ep, router_);
+        listener_ = std::make_shared<Listener>(ioc_, ep, router_, logger_);
         listener_->run();
+
+        logger_.log("Server is Starting...");
 
         unsigned n = std::max(1u, (unsigned)std::thread::hardware_concurrency());
         for (unsigned i = 0; i < n; i++)

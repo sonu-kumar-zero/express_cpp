@@ -18,10 +18,17 @@ private:
     {
         using namespace std::chrono;
         auto now = system_clock::now();
-        auto in_time_t = system_clock::to_time_t(now);
+        auto now_time_t = system_clock::to_time_t(now);
+
+        std::tm utc_tm = *std::gmtime(&now_time_t);
+
+        utc_tm.tm_hour += 5;
+        utc_tm.tm_min += 30;
+
+        std::mktime(&utc_tm);
 
         std::stringstream ss;
-        ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d %H:%M:%S");
+        ss << std::put_time(&utc_tm, "%Y-%m-%d %H:%M:%S");
         return ss.str();
     }
 

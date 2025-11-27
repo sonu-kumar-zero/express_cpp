@@ -43,6 +43,7 @@ struct Response
         setStatus(status);
         res.body() = "";
         res.content_length(0);
+        res.prepare_payload();
     }
 
     // 1️⃣ Accepts enum-based headers

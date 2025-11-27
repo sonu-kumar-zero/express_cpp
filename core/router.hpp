@@ -5,6 +5,7 @@
 #include <unordered_map>
 #include <functional>
 #include <set>
+#include "logger.hpp"
 
 using Handler = std::function<void(Request &, Response &)>;
 
@@ -14,8 +15,11 @@ class Router
     std::unordered_map<std::string, Handler> post_routes_;
     std::unordered_map<std::string, Handler> put_routes_;
     std::unordered_map<std::string, Handler> delete_routes_;
+    Logger &logger_;
 
 public:
+    Router(Logger &logger) : logger_(logger) {}
+
     void get(const std::string &path, Handler h)
     {
         get_routes_[path] = std::move(h);
@@ -115,7 +119,10 @@ public:
                 allow += m;
             }
 
+            logger_.log("router:hpp " + allow);
+
             res.setStatus(204);
+            res.clearBody();
             res.setHeader("Allow", allow);
 
             // CORS Support
