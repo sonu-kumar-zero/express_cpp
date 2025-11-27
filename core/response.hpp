@@ -37,4 +37,23 @@ struct Response
         res.body() = obj.dump(); // convert JSON -> string
         res.prepare_payload();
     }
+
+    void clearBody(unsigned status = 200)
+    {
+        setStatus(status);
+        res.body() = "";
+        res.content_length(0);
+    }
+
+    // 1️⃣ Accepts enum-based headers
+    void setHeader(http::field key, const std::string &value)
+    {
+        res.set(key, value);
+    }
+
+    // 2️⃣ Accepts arbitrary string header keys (like "Access-Control-Allow-Origin")
+    void setHeader(const std::string &key, const std::string &value)
+    {
+        res.set(http::string_to_field(key), value);
+    }
 };

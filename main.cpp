@@ -55,6 +55,12 @@ int main()
                               {"age", age}});
                 });
 
+        app.del("/search",
+                [](Request &req, Response &res)
+                {
+                    res.send("This is a delete route");
+                });
+
         std::cout << "Listening on 0.0.0.0:8080\n";
         app.listen("0.0.0.0", 8080);
     }

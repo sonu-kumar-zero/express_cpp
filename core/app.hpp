@@ -32,6 +32,16 @@ public:
         router_.post(path, std::move(h));
     }
 
+    void put(const std::string &path, Handler h)
+    {
+        router_.put(path, std::move(h));
+    }
+
+    void del(const std::string &path, Handler h)
+    {
+        router_.del(path, std::move(h));
+    }
+
     void listen(const std::string &address, unsigned short port)
     {
         tcp::endpoint ep(asio::ip::make_address(address), port);

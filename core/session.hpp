@@ -2,6 +2,7 @@
 #include <boost/asio.hpp>
 #include <boost/beast.hpp>
 #include "router.hpp"
+#include <iostream>
 
 namespace asio = boost::asio;
 namespace beast = boost::beast;
@@ -52,11 +53,11 @@ private:
         response.res = http::response<http::string_body>(
             http::status::not_found, 11);
         response.res.set(http::field::server, "cpp-express");
-        response.res.set(http::field::content_type, "text/plain");
 
         std::string target = std::string(request.req.target());
         std::string path = target.substr(0, target.find('?'));
 
+        std::cout << "session.hpp:60:method_name" << std::string(request.req.method_string()) << "\n";
         bool ok = router_.dispatch(
             std::string(request.req.method_string()),
             path,
