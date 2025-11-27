@@ -4,6 +4,7 @@
 CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
   /home/sonu/projects/cplus_express/core/app.hpp \
   /home/sonu/projects/cplus_express/core/listener.hpp \
+  /home/sonu/projects/cplus_express/core/logger.hpp \
   /home/sonu/projects/cplus_express/core/request.hpp \
   /home/sonu/projects/cplus_express/core/response.hpp \
   /home/sonu/projects/cplus_express/core/router.hpp \
@@ -1521,6 +1522,7 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
   /usr/include/c++/13/bits/fs_fwd.h \
   /usr/include/c++/13/bits/fs_ops.h \
   /usr/include/c++/13/bits/fs_path.h \
+  /usr/include/c++/13/bits/fstream.tcc \
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/gslice.h \
@@ -1641,6 +1643,7 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/filesystem \
   /usr/include/c++/13/forward_list \
+  /usr/include/c++/13/fstream \
   /usr/include/c++/13/functional \
   /usr/include/c++/13/future \
   /usr/include/c++/13/initializer_list \
@@ -1924,8 +1927,10 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
@@ -1993,6 +1998,8 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h:
 
 /usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
 
@@ -2394,6 +2401,8 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 
 /usr/include/c++/13/bits/gslice.h:
 
+/usr/include/c++/13/bits/fstream.tcc:
+
 /usr/include/c++/13/bits/stl_construct.h:
 
 /usr/include/c++/13/bits/fs_fwd.h:
@@ -2447,8 +2456,6 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 /usr/include/boost/utility/string_view_fwd.hpp:
 
 /usr/include/boost/utility/string_view.hpp:
-
-/usr/include/boost/utility/result_of.hpp:
 
 /usr/include/boost/utility/compare_pointees.hpp:
 
@@ -3008,11 +3015,7 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 
 /usr/include/boost/predef/language/stdc.h:
 
-/usr/include/boost/beast/core/flat_static_buffer.hpp:
-
-/usr/include/boost/preprocessor/tuple/detail/is_single_return.hpp:
-
-/usr/include/boost/beast/core/detail/base64.hpp:
+/usr/include/boost/predef/language/objc.h:
 
 /usr/include/c++/13/cctype:
 
@@ -3326,6 +3329,8 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 
 /usr/include/boost/asio/ip/impl/address_v4.hpp:
 
+/usr/include/c++/13/fstream:
+
 /usr/include/boost/type_traits/detail/has_prefix_operator.hpp:
 
 /usr/include/boost/endian/detail/endian_store.hpp:
@@ -3363,8 +3368,6 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 /usr/include/boost/asio/associated_executor.hpp:
 
 /usr/include/boost/asio/traits/prefer_member.hpp:
-
-/usr/include/boost/predef/language/objc.h:
 
 /usr/include/boost/beast/http/verb.hpp:
 
@@ -3613,12 +3616,6 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 /usr/include/boost/predef/os/macos.h:
 
 /usr/include/boost/mp11/utility.hpp:
-
-/usr/include/c++/13/thread:
-
-/usr/include/boost/asio/detail/impl/scheduler.ipp:
-
-/usr/include/boost/asio/detail/impl/descriptor_ops.ipp:
 
 /usr/include/boost/preprocessor/variadic/size.hpp:
 
@@ -3870,6 +3867,12 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 
 /usr/include/boost/optional/detail/optional_hash.hpp:
 
+/usr/include/boost/preprocessor/tuple/detail/is_single_return.hpp:
+
+/usr/include/boost/beast/core/detail/base64.hpp:
+
+/usr/include/boost/beast/core/flat_static_buffer.hpp:
+
 /usr/include/boost/asio/traits/require_free.hpp:
 
 /usr/include/boost/mp11/detail/mp_min_element.hpp:
@@ -3906,6 +3909,22 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 
 /usr/include/boost/asio/detail/socket_option.hpp:
 
+/usr/include/asm-generic/sockios.h:
+
+/usr/include/c++/13/sstream:
+
+/usr/include/boost/asio/detail/posix_static_mutex.hpp:
+
+/usr/include/boost/asio/ip/impl/basic_endpoint.hpp:
+
+/usr/include/boost/utility/detail/result_of_variadic.hpp:
+
+/usr/include/boost/beast/http/impl/basic_parser.hpp:
+
+/usr/include/boost/type_traits/has_modulus.hpp:
+
+/usr/include/boost/asio/detail/posix_global.hpp:
+
 /usr/include/boost/beast/core/detail/char_buffer.hpp:
 
 /usr/include/boost/mpl/aux_/integral_wrapper.hpp:
@@ -3927,52 +3946,6 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 /usr/include/boost/type_traits/is_stateless.hpp:
 
 /usr/include/boost/asio/any_completion_handler.hpp:
-
-/usr/include/asm-generic/sockios.h:
-
-/usr/include/c++/13/sstream:
-
-/usr/include/boost/asio/detail/posix_static_mutex.hpp:
-
-/usr/include/boost/asio/ip/impl/basic_endpoint.hpp:
-
-/usr/include/boost/utility/detail/result_of_variadic.hpp:
-
-/usr/include/boost/beast/http/impl/basic_parser.hpp:
-
-/usr/include/boost/type_traits/has_modulus.hpp:
-
-/usr/include/boost/asio/detail/posix_global.hpp:
-
-/usr/include/c++/13/cstdio:
-
-/usr/include/c++/13/bits/valarray_before.h:
-
-/usr/include/boost/asio/basic_stream_socket.hpp:
-
-/usr/include/boost/asio/detail/impl/posix_event.ipp:
-
-/usr/include/boost/mpl/aux_/largest_int.hpp:
-
-/usr/include/boost/asio/detail/posix_signal_blocker.hpp:
-
-/usr/include/boost/asio/basic_streambuf.hpp:
-
-/usr/include/boost/asio/impl/consign.hpp:
-
-/usr/include/boost/date_time/time_resolution_traits.hpp:
-
-/usr/include/boost/container_hash/hash_fwd.hpp:
-
-/usr/include/boost/asio/ip/network_v6.hpp:
-
-/usr/include/boost/container_hash/detail/hash_mix.hpp:
-
-/usr/include/boost/asio.hpp:
-
-/usr/include/boost/asio/impl/connect_pipe.hpp:
-
-/usr/include/asm-generic/ioctl.h:
 
 /usr/include/boost/asio/wait_traits.hpp:
 
@@ -4024,6 +3997,16 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 
 /usr/include/boost/asio/detail/null_event.hpp:
 
+/usr/include/c++/13/cstdio:
+
+/usr/include/c++/13/bits/valarray_before.h:
+
+/usr/include/boost/asio/basic_stream_socket.hpp:
+
+/usr/include/boost/asio/detail/impl/posix_event.ipp:
+
+/usr/include/boost/mpl/aux_/largest_int.hpp:
+
 /usr/include/boost/asio/execution/submit.hpp:
 
 /usr/include/boost/asio/io_context_strand.hpp:
@@ -4072,11 +4055,23 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 
 /usr/include/asm-generic/socket.h:
 
+/usr/include/boost/container_hash/detail/hash_mix.hpp:
+
+/usr/include/boost/asio.hpp:
+
 /usr/include/boost/asio/detail/executor_op.hpp:
 
 /usr/include/nlohmann/detail/output/serializer.hpp:
 
 /usr/include/boost/mpl/aux_/value_wknd.hpp:
+
+/home/sonu/projects/cplus_express/core/app.hpp:
+
+/usr/include/boost/asio/detail/posix_thread.hpp:
+
+/usr/include/boost/type_traits/has_multiplies.hpp:
+
+/usr/include/boost/asio/detail/cstdint.hpp:
 
 /usr/include/boost/asio/executor_work_guard.hpp:
 
@@ -4084,15 +4079,35 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 
 /usr/include/boost/asio/detail/reactive_socket_recvfrom_op.hpp:
 
-/home/sonu/projects/cplus_express/core/app.hpp:
+/usr/include/boost/asio/query.hpp:
 
-/usr/include/boost/asio/detail/posix_thread.hpp:
+/usr/include/boost/asio/async_result.hpp:
+
+/usr/include/boost/mpl/aux_/config/eti.hpp:
+
+/usr/include/boost/asio/detail/impl/signal_set_service.ipp:
+
+/usr/include/boost/container_hash/hash_fwd.hpp:
+
+/usr/include/boost/asio/ip/network_v6.hpp:
 
 /usr/include/boost/asio/detail/blocking_executor_op.hpp:
 
-/usr/include/boost/type_traits/has_multiplies.hpp:
+/usr/include/c++/13/thread:
 
-/usr/include/boost/asio/detail/cstdint.hpp:
+/usr/include/boost/asio/detail/impl/scheduler.ipp:
+
+/usr/include/asm-generic/ioctl.h:
+
+/usr/include/boost/asio/impl/connect_pipe.hpp:
+
+/usr/include/boost/asio/detail/posix_signal_blocker.hpp:
+
+/usr/include/boost/asio/basic_streambuf.hpp:
+
+/usr/include/boost/asio/impl/consign.hpp:
+
+/usr/include/boost/date_time/time_resolution_traits.hpp:
 
 /usr/include/c++/13/csignal:
 
@@ -4112,13 +4127,45 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 
 /usr/include/boost/mpl/apply_wrap.hpp:
 
-/usr/include/boost/asio/query.hpp:
+/usr/include/boost/utility/result_of.hpp:
 
-/usr/include/boost/asio/async_result.hpp:
+/home/sonu/projects/cplus_express/core/logger.hpp:
 
-/usr/include/boost/mpl/aux_/config/eti.hpp:
+/usr/include/boost/asio/read_at.hpp:
 
-/usr/include/boost/asio/detail/impl/signal_set_service.ipp:
+/usr/include/boost/asio/basic_serial_port.hpp:
+
+/usr/include/boost/asio/detail/reactive_socket_recvmsg_op.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
+
+/usr/include/boost/asio/detail/impl/strand_executor_service.hpp:
+
+/usr/include/boost/beast/websocket/error.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/fcntl-linux.h:
+
+/usr/include/boost/asio/local/basic_endpoint.hpp:
+
+/usr/include/boost/asio/execution/executor.hpp:
+
+/usr/include/boost/beast/zlib/detail/deflate_stream.hpp:
+
+/usr/include/boost/asio/execution/bulk_guarantee.hpp:
+
+/usr/include/boost/asio/detail/scheduler.hpp:
+
+/usr/include/boost/mpl/aux_/lambda_support.hpp:
+
+/usr/include/boost/type_traits/is_final.hpp:
+
+/usr/include/boost/asio/basic_datagram_socket.hpp:
+
+/usr/include/boost/asio/detail/functional.hpp:
+
+/usr/include/boost/intrusive/detail/rbtree_node.hpp:
+
+/usr/include/asm-generic/bitsperlong.h:
 
 /usr/include/boost/asio/deadline_timer.hpp:
 
@@ -4136,37 +4183,7 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 
 /home/sonu/projects/cplus_express/core/session.hpp:
 
-/usr/include/boost/asio/detail/functional.hpp:
-
-/usr/include/boost/intrusive/detail/rbtree_node.hpp:
-
-/usr/include/asm-generic/bitsperlong.h:
-
-/usr/include/boost/asio/detail/scheduler.hpp:
-
-/usr/include/boost/mpl/aux_/lambda_support.hpp:
-
-/usr/include/boost/type_traits/is_final.hpp:
-
-/usr/include/boost/asio/basic_datagram_socket.hpp:
-
 /usr/include/boost/asio/any_io_executor.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
-
-/usr/include/boost/asio/detail/impl/strand_executor_service.hpp:
-
-/usr/include/boost/beast/websocket/error.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/fcntl-linux.h:
-
-/usr/include/boost/asio/local/basic_endpoint.hpp:
-
-/usr/include/boost/asio/execution/executor.hpp:
-
-/usr/include/boost/beast/zlib/detail/deflate_stream.hpp:
-
-/usr/include/boost/asio/execution/bulk_guarantee.hpp:
 
 /usr/include/boost/numeric/conversion/detail/is_subranged.hpp:
 
@@ -4304,6 +4321,8 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 
 /usr/include/boost/bind/std_placeholders.hpp:
 
+/usr/include/boost/asio/detail/impl/descriptor_ops.ipp:
+
 /usr/include/boost/mpl/aux_/static_cast.hpp:
 
 /usr/include/boost/asio/basic_random_access_file.hpp:
@@ -4408,6 +4427,8 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 
 /usr/include/boost/predef/detail/test.h:
 
+/usr/include/boost/asio/detail/resolver_service.hpp:
+
 /usr/include/c++/13/bits/ptr_traits.h:
 
 /usr/include/boost/asio/detail/impl/posix_thread.ipp:
@@ -4423,8 +4444,6 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 /usr/include/boost/asio/posix/basic_stream_descriptor.hpp:
 
 /usr/include/boost/intrusive/link_mode.hpp:
-
-/usr/include/boost/asio/detail/resolver_service.hpp:
 
 /usr/include/boost/enable_shared_from_this.hpp:
 
@@ -4501,12 +4520,6 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 /usr/include/boost/intrusive/list_hook.hpp:
 
 /usr/include/boost/asio/detail/reactive_socket_recv_op.hpp:
-
-/usr/include/boost/asio/read_at.hpp:
-
-/usr/include/boost/asio/basic_serial_port.hpp:
-
-/usr/include/boost/asio/detail/reactive_socket_recvmsg_op.hpp:
 
 /usr/include/boost/numeric/conversion/detail/int_float_mixture.hpp:
 
@@ -5261,6 +5274,8 @@ CMakeFiles/server.dir/main.cpp.o: /home/sonu/projects/cplus_express/main.cpp \
 /usr/include/boost/asio/windows/basic_random_access_handle.hpp:
 
 /usr/include/boost/date_time/posix_time/time_period.hpp:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 

@@ -1,18 +1,21 @@
 #include <iostream>
 #include "core/app.hpp"
+#include "core/logger.hpp"
 
 int main()
 {
     try
     {
         App app;
+        Logger logger;
 
         app.get("/",
-                [](Request &req, Response &res)
+                [&logger](Request &req, Response &res)
                 {
                     json data;
                     data["id"] = 123;
-                    data["name"] = "Sonu Kumar";
+                    data["name"] = "zero";
+                    logger.log("This is a log test.");
                     res.json(data, 201);
                 });
 
